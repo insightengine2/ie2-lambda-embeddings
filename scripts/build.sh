@@ -1,6 +1,4 @@
 #!/bin/bash
-cd ..
-
 BUILDDIR="build"
 DEPSDIR="deps"
 FILENAME="bootstrap.zip"
