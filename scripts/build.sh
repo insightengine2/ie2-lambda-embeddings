@@ -63,7 +63,22 @@ fi
 
 echo "Build Complete"
 
-cd ../$DISTDIR
+# back to root
+cd ..
+
+# copy the config if it exists
+CONFIGFILE="ie2-config.yml"
+echo "checking if $CONFIGFILE exists"
+
+if [ -f "./$CONFIGFILE" ]; then
+    echo "found $CONFIGFILE"
+    echo "copying $CONFIGFILE to $DISTDIR directory"
+    cp "$CONFIGFILE" "./$DISTDIR/$CONFIGFILE"
+else
+    echo "file $CONFIGFILE does NOT exist..."
+fi
+
+cd ./$DISTDIR
 
 if [ -f "./$FILENAME" ]; then
     filesize=$(wc --bytes "./$FILENAME")
